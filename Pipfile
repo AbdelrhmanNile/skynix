@@ -1,0 +1,28 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+requests = "*"
+tensorflow = "*"
+numpy = "*"
+freenlpc = "*"
+pyautogui = "*"
+wikipedia = "*"
+rich = "*"
+pafy = "*"
+youtube-dl = "*"
+python-vlc = "*"
+sxhkd-parser = "*"
+pyperclip = "*"
+xneuralintents = "*"
+beautifulsoup4 = "*"
+python-dotenv = "*"
+pyowm = "*"
+
+[dev-packages]
+nuitka = "*"
+
+[requires]
+python_version = "3.10"

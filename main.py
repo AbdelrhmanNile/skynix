@@ -1,8 +1,8 @@
 import os
 from freenlpc import FreeNlpc
-from ForeFront import ForeFrontApi
+from modules.ForeFront import ForeFrontApi
 from dotenv import load_dotenv
-from microservices.weather import get_weather
+from modules.weather import get_weather
 import prompts
 import pyautogui
 from neuralintents import GenericAssistant
@@ -15,14 +15,13 @@ from rich import print
 from rich.panel import Panel
 from rich.syntax import Syntax
 from pafy import backend_youtube_dl
-import re, requests, urllib.parse, urllib.request
 from bs4 import BeautifulSoup
 import pafy, vlc
 from time import sleep
 import pickle
 
 
-load_dotenv("/home/pirate/git/skynix/.env")
+load_dotenv(".env")
 
 class SkyNix:
     def __init__(self):
@@ -43,8 +42,8 @@ class SkyNix:
                       "music": self.music,
                       "linux_command": self.linux_command}
         
-        self.tasks_cls = GenericAssistant('/home/pirate/git/skynix/tasks_intents.json', model_name="skynix_tasks_cls", intent_methods=self.tasks)
-        self.tasks_cls.load_model("/home/pirate/git/skynix/skynix_tasks_cls")
+        self.tasks_cls = GenericAssistant('tasks_intents.json', model_name="skynix_tasks_cls", intent_methods=self.tasks)
+        self.tasks_cls.load_model()
         
         self._get_sxhkd_binds()
         
