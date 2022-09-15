@@ -3,7 +3,7 @@ from freenlpc import FreeNlpc
 from modules.ForeFront import ForeFrontApi
 from dotenv import load_dotenv
 from modules.weather import get_weather
-import prompts
+from modules import prompts
 import pyautogui
 from neuralintents import GenericAssistant
 import wikipedia
@@ -43,7 +43,7 @@ class SkyNix:
                       "linux_command": self.linux_command}
         
         self.tasks_cls = GenericAssistant('tasks_intents.json', model_name="skynix_tasks_cls", intent_methods=self.tasks)
-        self.tasks_cls.load_model()
+        self.tasks_cls.load_model("tasks_classifier/skynix_tasks_cls")
         
         self._get_sxhkd_binds()
         
