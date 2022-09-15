@@ -1,39 +1,41 @@
 {"intents": [
-  {"tag": "weather",
-    "patterns": ["weather", "temperature", "how is the weather today in cairo?", "what is the temperature there?", "is it hot in Antipolo?"],
+  {"tag": "chat",
+    "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up", "Hey", "greetings", "what are you doing today?", "are you okay?", "are you alive?", "what is life?", "humans are weird", "thank you", "what is your name?", "my name is", "oh okay", "well thanks", "that is good", "great"],
+    "responses": ["chat"],
+    "context_set": ""
+  },
+  {"tag": "get_weather",
+    "patterns": ["weather", "temperature", "weather in", "weather today in cairo?", "what is the temperature?", "is it hot in Antipolo?"],
     "responses": ["weather"],
     "context_set": ""
   },
+  {"tag": "run_app",
+    "patterns": ["run app", "start app", "launch app", "launch vlc please", "run brave", "launch ranger for me", "can you launch/run mpv?"],
+    "responses": ["run app"]
+  },
   {"tag": "tutor",
-    "patterns": ["teach me about neuroscience", "tell me about physics", "do you know what is biology?", "what is the definition of psychology?", "what is the meaning of sociology?"],
+    "patterns": ["teach me about neuroscience", "tell me about physics", "do you know what is biology?", "what is the definition of psychology?", "what is the meaning of sociology?", "i want to learn more"],
     "responses": ["tutor"],
     "context_set": ""
   },
-  {"tag": "joke",
-    "patterns": ["tell me a joke", "make me laugh", "do you know any jokes?", "can you tell me a joke?", "make me laugh please"],
-    "responses": ["joke"],
-    "context_set": ""
-  },
-  {"tag": "options",
-    "patterns": ["what can you do?", "what can you do for me?", "what can you do for me?", "what can you do for me?", "what can you do for me?"],
-    "responses": ["I can help you with weather, jokes, and tutoring"],
-    "context_set": ""
-  },
   {"tag": "music",
-    "patterns": ["play music", "play a song", "play a song for me", "play a song for me", "play a song for me"],
+    "patterns": ["play music", "play a song", "play a song for me", "play song by artist", "to listen to", "play it for me"],
     "responses": ["music"],
-    "context_set": ""
-  },
-  {"tag": "age",
-    "patterns": ["how old are you?", "how old are you?", "how old are you?", "how old are you?", "how old are you?"],
-    "responses": ["I am a few days old", "I'm a few days old", "I'm a few days old"],
     "context_set": ""
   },
   {"tag": "location",
     "patterns": ["where are you from?", "where do you live?", "where are you?", "where are you?", "where are you?"],
     "responses": ["I'm from the internet", "I live in a computer", "I'm from the internet"],
     "context_set": ""
+  },
+  {"tag": "code",
+    "patterns": ["write a python3 function named popo to do pepe", "write a class named", "write in python", "write in java", "write in javascript", "write in c++ a code snippet", "write a code snippet", "write in a programming language"],
+    "responses": ["code"],
+    "context_set": ""
+  },
+  {"tag": "linux_command",
+    "patterns": ["command for", "linux command for", "bash command for", "terminal command for"],
+    "responses": ["linux command"],
+    "context_set": ""
   }
-
-]
-}
+]}

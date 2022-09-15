@@ -20,12 +20,17 @@ class ForeFrontApi:
             "stop_sequences": stop_sequences
         }
 
-        res = requests.post(
-            f"{self.__model_url}",
-            json=body,
-            headers=headers
-        )
+        while True:
+            res = requests.post(
+                f"{self.__model_url}",
+                json=body,
+                headers=headers
+            )
 
-        data = res.json()
+            data = res.json()
 
-        return data['result'][0]['completion']
+            completion = data['result'][0]['completion']
+            if completion.isspace():
+                continue
+            else:
+                return completion
