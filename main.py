@@ -42,7 +42,7 @@ class SkyNix:
                       "music": self.music,
                       "linux_command": self.linux_command}
         
-        self.tasks_cls = GenericAssistant('tasks_intents.json', model_name="skynix_tasks_cls", intent_methods=self.tasks)
+        self.tasks_cls = GenericAssistant('tasks_classifier/tasks_intents.json', model_name="skynix_tasks_cls", intent_methods=self.tasks)
         self.tasks_cls.load_model("tasks_classifier/skynix_tasks_cls")
         
         self._get_sxhkd_binds()
