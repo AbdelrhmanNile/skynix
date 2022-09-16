@@ -14,6 +14,7 @@ import pyperclip
 from rich import print
 from rich.panel import Panel
 from rich.syntax import Syntax
+from rich.prompt import Prompt
 from pafy import backend_youtube_dl
 from bs4 import BeautifulSoup
 import pafy, vlc
@@ -280,7 +281,7 @@ class SkyNix:
         return self.tasks[correct_task](text)
     
     def _save_conversation(self):
-        pickle.dump(self.conversation, open(f"/home/os.getlogin()/skynix/conversation.pkl", "wb"))
+        pickle.dump(self.conversation, open(f"/home/{os.getlogin()}/skynix/conversation.pkl", "wb"))
     
     def _load_conversation(self, path: str):
         if os.path.isfile(path):
@@ -299,6 +300,6 @@ class SkyNix:
 if __name__ == "__main__":
     skynix = SkyNix()
     while True:
-        text = input(">>> ")
+        text = Prompt("[red]>>> ")
         response = skynix._inference(text)
-        print(response)
+        print(f"[blue]{response}")
