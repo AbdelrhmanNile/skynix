@@ -19,6 +19,7 @@ from bs4 import BeautifulSoup
 import pafy, vlc
 from time import sleep
 import pickle
+import json
 
 
 load_dotenv(".env")
@@ -28,9 +29,16 @@ class SkyNix:
         self.version = "0.0.1"
         self.name = "SKYNIX"
         
-        self.core_functions = FreeNlpc([os.getenv("nlpc1"), os.getenv("nlpc2"), os.getenv("nlpc3"), os.getenv("nlpc4")])
-        self.gptj = ForeFrontApi(os.getenv("ff2"), os.getenv("skynix_gptj"))
-        self.codegen = ForeFrontApi(os.getenv("ff2"), os.getenv("codegen2"))
+        self.config = json.load(open("config.json"))
+        
+        nlpcloud_tokens = self.config["nlpcloud_tokens"]
+        self.core_functions = FreeNlpc(nlpcloud_tokens)
+        
+        forefront_token = self.config["forefront_token"]
+        gptj_url = self.config["forefront_gptj_url"]
+        codegen_url = self.config["forefront_codegen_url"]
+        self.gptj = ForeFrontApi(forefront_token, gptj_url)
+        self.codegen = ForeFrontApi(forefront_token, codegen_url)
         
         
         self.tasks = {"chat": self.chat,
