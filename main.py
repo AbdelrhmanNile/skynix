@@ -17,7 +17,7 @@ from rich.syntax import Syntax
 from rich.prompt import Prompt
 from pafy import backend_youtube_dl
 from bs4 import BeautifulSoup
-import pafy, vlc
+import pafy, vlc, urllib, re, requests
 from time import sleep
 import pickle
 import json
