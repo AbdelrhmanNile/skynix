@@ -300,6 +300,9 @@ class SkyNix:
 if __name__ == "__main__":
     skynix = SkyNix()
     while True:
-        text = Prompt("[red]>>> ")
+        text = Prompt.ask("[red]>>> ")
         response = skynix._inference(text)
-        print(f"[blue]{response}")
+        if type(response) == str:
+            print(f"[blue]{response}")
+        else:
+            print(response)
