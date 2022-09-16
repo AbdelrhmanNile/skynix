@@ -29,7 +29,7 @@ class SkyNix:
         self.version = "0.0.1"
         self.name = "SKYNIX"
         
-        self.config = json.load(open("config.json"))
+        self.config = json.load(open(f"/home/{os.getlogin()}/config.json"))
         
         nlpcloud_tokens = self.config["nlpcloud_tokens"]
         self.core_functions = FreeNlpc(nlpcloud_tokens)
