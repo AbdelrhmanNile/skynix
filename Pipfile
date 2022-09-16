@@ -11,8 +11,6 @@ freenlpc = "*"
 pyautogui = "*"
 wikipedia = "*"
 rich = "*"
-pafy = "*"
-youtube-dl = "*"
 python-vlc = "*"
 sxhkd-parser = "*"
 pyperclip = "*"
@@ -20,6 +18,8 @@ xneuralintents = "*"
 beautifulsoup4 = "*"
 python-dotenv = "*"
 pyowm = "*"
+youtube-dl = {git = "https://github.com/ytdl-org/youtube-dl.git"}
+pafy = {git = "https://github.com/mps-youtube/pafy.git"}
 
 [dev-packages]
 nuitka = "*"
