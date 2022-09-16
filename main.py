@@ -280,7 +280,7 @@ class SkyNix:
         return self.tasks[correct_task](text)
     
     def _save_conversation(self):
-        pickle.dump(self.conversation, open(f"conversation.pkl", "wb"))
+        pickle.dump(self.conversation, open(f"/home/os.getlogin()/skynix/conversation.pkl", "wb"))
     
     def _load_conversation(self, path: str):
         if os.path.isfile(path):
