@@ -106,10 +106,13 @@ class SkyNix:
             return self._self_correct(text)
         
         status, temp = get_weather(city)
-        temp = str(int(temp)) + " celsius."
-        info = f"{status}, {temp}"
-        response = self.gptj.generate(prompts.question_answering_hint.replace("<question>", text).replace("<hint>", info), length=20, stop_sequences=["QUESTION:","ANSWER:"])
-        return self._clean_text(response)
+        temp = round(temp)
+        temperature = str(temp) + " celsius."
+        info = f"{status}, {temperature}"
+        while True:
+            response = self.gptj.generate(prompts.question_answering_hint.replace("<question>", text).replace("<hint>", info), length=20, stop_sequences=["QUESTION:","ANSWER:"])
+            if temp in response:
+                return self._clean_text(response)
     
     def run_app(self, text: str):
         app_name = self.gptj.generate(prompts.get_app.replace("<command>", text), length=20, stop_sequences=["\n","###"])
