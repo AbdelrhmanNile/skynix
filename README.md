@@ -2,6 +2,15 @@
 
 skynix is a smart AI chatbot / Linux assistant.
 
+# what can it do?
+- casual conversation
+- teach you about Linux or other topics
+- write code for you in any language
+- help you with Linux commands
+- tell you the weather
+- play music
+- run programs
+
 # dependencies
 - python3
 - xfce4-terminal
@@ -18,3 +27,14 @@ using pip:
 run ```skynix-cli run``` to start skynix
 in the first run it will ask you about your name.
 the chat histroy will be saved in conversation.pkl inside the skynix directory.
+
+# important notes
+- in order to make it run apps you need to have your keybinds in a ```sxhkdrc``` file in ```~/.config/sxhkd```
+    sxhkdrc example: [here](https://gitlab.com/dwt1/dotfiles/blob/master/.config/sxhkd/sxhkdrc)
+
+- when configuring skynix, provide more than one nlpcloud api tokens.
+    create multiple accounts on [nlpcloud](https://nlpcloud.com/) and get the api tokens.
+        after creating an account play with it a bit in the playground to not get banned.
+
+- DO NOT use a vanilla gpt-j model from [forefront](https://www.forefront.ai/), fine-tune one using the dataset provided in the repo.
+    they give you a free 10$ credit every month.
