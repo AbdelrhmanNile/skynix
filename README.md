@@ -26,7 +26,7 @@ using pip:
 # usage
 run ```skynix-cli run``` to start skynix
 in the first run it will ask you about your name.
-the chat histroy will be saved in conversation.pkl inside the skynix directory.
+the chat histroy will be saved in conversation.pkl ```~/.local/share/skynix```
 
 # important notes
 - in order to make it run apps you need to have your keybinds in a ```sxhkdrc``` file in ```~/.config/sxhkd```

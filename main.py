@@ -56,7 +56,7 @@ class SkyNix:
         
         self._get_sxhkd_binds()
         
-        self._load_conversation(f"/home/{os.getlogin()}/skynix/conversation.pkl")
+        self._load_conversation(f"/home/{os.getlogin()}/.local/share/skynix/conversation.pkl")
         self._init_vlc()
         
     def _inference(self, text: str):
@@ -283,7 +283,9 @@ class SkyNix:
         return self.tasks[correct_task](text)
     
     def _save_conversation(self):
-        pickle.dump(self.conversation, open(f"/home/{os.getlogin()}/skynix/conversation.pkl", "wb"))
+        if not os.path.exists(f'/home/{os.getlogin()}/.local/share/skynix'):
+            os.mkdir(f'/home/{os.getlogin()}/.local/share/skynix')
+        pickle.dump(self.conversation, open(f"/home/{os.getlogin()}/.local/share/skynix/conversation.pkl", "wb"))
     
     def _load_conversation(self, path: str):
         if os.path.isfile(path):
