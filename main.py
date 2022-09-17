@@ -299,13 +299,17 @@ class SkyNix:
             os.system("clear")
             self._hello()
 
-    
+     
 if __name__ == "__main__":
     skynix = SkyNix()
-    while True:
-        text = Prompt.ask("[red]>>> ")
-        response = skynix._inference(text)
-        if type(response) == str:
-            print(f"[blue]{response}")
-        else:
-            print(response)
+    try:
+        while True:
+            text = Prompt.ask("[red]>>> ")
+            response = skynix._inference(text)
+            if type(response) == str:
+                print(f"[blue]{response}")
+            else:
+                print(response)
+    except KeyboardInterrupt:
+        print("[red]Exiting SkyNix...")
+        exit()
