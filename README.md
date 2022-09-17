@@ -39,3 +39,5 @@ the chat histroy will be saved in conversation.pkl inside the skynix directory.
 
 - DO NOT use a vanilla gpt-j model from [forefront](https://www.forefront.ai/), fine-tune one using the dataset provided in the repo.
     they give you a free 10$ credit every month.
+
+- you can bind ```skynix-cli run``` to a function key and it will work like a toggle.
