@@ -35,6 +35,7 @@ the chat histroy will be saved in conversation.pkl inside the skynix directory.
 - when configuring skynix, provide more than one nlpcloud api tokens.
     create multiple accounts on [nlpcloud](https://nlpcloud.com/) and get the api tokens.
         after creating an account play with it a bit in the playground to not get banned.
+            after a while of using these tokens, nlpcloud will rate-limit them with 1 request per hour, when it happens, create another account and get another token.
 
 - DO NOT use a vanilla gpt-j model from [forefront](https://www.forefront.ai/), fine-tune one using the dataset provided in the repo.
     they give you a free 10$ credit every month.
