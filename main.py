@@ -245,7 +245,7 @@ class SkyNix:
     
     def _hello(self):
         start = self._inference("hey")
-        print(f"[blue]start")
+        print(f"[blue]{start}")
     
     def _clean_code(self, code: str):
         while code[0].isspace() or code[-1].isspace():
