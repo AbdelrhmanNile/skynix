@@ -46,7 +46,7 @@ class SkyNix:
                       "get_weather": self.get_weather,
                       "run_app": self.run_app,
                       "chat": self.chat,
-                      "tutor": self.chat,
+                      "tutor": self.tutor,
                       "code": self.code,
                       "music": self.music,
                       "linux_command": self.linux_command}
