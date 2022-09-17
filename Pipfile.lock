@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ea858b9183f093b63dbb7d51f27f8ecabb1a3a5036bfe2a15eebb09407628cc4"
+            "sha256": "5e06d7b291deb59f8a92e8d00ba318c2078cb1e3e330ceaf866cd96a9a1ae91c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -387,8 +387,8 @@
             "version": "==21.3"
         },
         "pafy": {
-            "git": "https://github.com/mps-youtube/pafy.git",
-            "ref": "0580c7247e74f4caa97154ad4fd6763e991198f8"
+            "git": "https://github.com/Cupcakus/pafy.git",
+            "ref": "45f0deb067bf7c420cdf83a0529fd5274c12de18"
         },
         "protobuf": {
             "hashes": [
@@ -922,8 +922,12 @@
             "version": "==0.0.6"
         },
         "youtube-dl": {
-            "git": "https://github.com/ytdl-org/youtube-dl.git",
-            "ref": "7009bb9f3182449ae8cc05cc28b768b63030a485"
+            "hashes": [
+                "sha256:bc59e86c5d15d887ac590454511f08ce2c47698d5a82c27bfe27b5d814bbaed2",
+                "sha256:f1336d5de68647e0364a47b3c0712578e59ec76f02048ff5c50ef1c69d79cd55"
+            ],
+            "index": "pypi",
+            "version": "==2021.12.17"
         }
     },
     "develop": {
