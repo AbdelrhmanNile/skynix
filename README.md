@@ -12,7 +12,10 @@ skynix is a smart AI chatbot / Linux assistant.
 - run programs
 
 # dependencies
+these are the dependencies you need to install manually if you don't have them already:
 - python3
+- python3-pip
+- vlc
 - xfce4-terminal
 
 # installation
@@ -41,3 +44,11 @@ the chat histroy will be saved in conversation.pkl ```~/.local/share/skynix```
     they give you a free 10$ credit every month.
 
 - you can bind ```skynix-cli run``` to a function key and it will work like a toggle.
+
+# update skynix
+- every now and then you should run ```skynix-cli pull``` to pull any new updates.
+
+- always make sure that ```skynix-cli``` is up to date by running ```pip install --upgrade skynix-cli```
+
+# credits
+SkyNix is inspired and heavily influenced by [David Shapiro's](https://github.com/daveshap) projects.
