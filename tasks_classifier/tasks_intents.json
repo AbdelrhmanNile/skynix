@@ -19,7 +19,7 @@
     "context_set": ""
   },
   {"tag": "music",
-    "patterns": ["play music", "play a song", "play a song for me", "play song by artist", "to listen to", "play it for me"],
+    "patterns": ["play music", "play a song", "play a song for me", "play song by artist", "to listen to", "play it for me", "stop the music", "pause the music", "stop music", "pause music"],
     "responses": ["music"],
     "context_set": ""
   },

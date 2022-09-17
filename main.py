@@ -43,7 +43,7 @@ class SkyNix:
         
         
         self.tasks = {"chat": self.chat,
-                      "weather": self.get_weather,
+                      "get_weather": self.get_weather,
                       "run_app": self.run_app,
                       "chat": self.chat,
                       "tutor": self.chat,
