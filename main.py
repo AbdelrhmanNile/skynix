@@ -155,7 +155,6 @@ class SkyNix:
         command = self._clean_code(command)
         syntax = Syntax(command, "Bash", theme="one-dark")
         return syntax
-        #return os.popen(command).read()
     
 
     ##################-UTILS-##################
