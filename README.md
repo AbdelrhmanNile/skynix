@@ -11,7 +11,7 @@ using pip:
 ```pip install skynix-cli```
 
 # initialize
-- run ```skynix-cli pull``` to download the latest version of skynix
+- run ```skynix-cli pull``` to download the latest version of skynix and configure the environment for skynix to run
 - run ```skynix-cli config``` to open the config file and configure skynix
 
 # usage
