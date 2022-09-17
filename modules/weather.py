@@ -1,9 +1,9 @@
 from pyowm import OWM
-from dotenv import load_dotenv
 import os
+import json
 
-load_dotenv("/home/pirate/git/skynix/.env")
-owm = OWM(os.getenv("owm_api"))
+config = json.load(open(f"/home/{os.getlogin()}/skynix/config.json"))
+owm = OWM(config["openweathermap_token"])
 mgr = owm.weather_manager()
 
 
