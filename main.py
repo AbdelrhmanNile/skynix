@@ -121,8 +121,8 @@ class SkyNix:
             if app_name in i["app"]:
                 pyautogui.hotkey(*i["keys"])
                 return f"running {app_name}"
-            else:
-                return f"could not find {app_name}"
+        else:
+            return f"could not find {app_name}"
     
     def music(self, text: str):
         action = self.core_functions.classification(text, ["play", "pause", "stop"])['scored_labels'][0]['label']
