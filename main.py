@@ -111,7 +111,7 @@ class SkyNix:
         info = f"{status}, {temperature}"
         while True:
             response = self.gptj.generate(prompts.question_answering_hint.replace("<question>", text).replace("<hint>", info), length=20, stop_sequences=["QUESTION:","ANSWER:"])
-            if temp in response:
+            if str(temp) in response:
                 return self._clean_text(response)
     
     def run_app(self, text: str):
