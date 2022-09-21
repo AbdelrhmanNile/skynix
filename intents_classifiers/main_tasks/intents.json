@@ -10,7 +10,7 @@
     "context_set": ""
   },
   {"tag": "run_app",
-    "patterns": ["run app", "start app", "launch app", "launch vlc please", "run brave", "launch ranger for me", "can you launch/run mpv?"],
+    "patterns": ["run app", "start app", "launch app", "close app", "quit app", "hide app", "show app", "focus / activate app", "can you run brave please?"],
     "responses": ["run app"]
   },
   {"tag": "tutor",

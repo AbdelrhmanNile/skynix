@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5e06d7b291deb59f8a92e8d00ba318c2078cb1e3e330ceaf866cd96a9a1ae91c"
+            "sha256": "7b3ac3d4f3d23a6af6672543a7e814bd9c343c30235852623e16eba13b5a7e08"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -78,6 +78,20 @@
             ],
             "version": "==0.9.1"
         },
+        "evdev": {
+            "hashes": [
+                "sha256:ecfa01b5c84f7e8c6ced3367ac95288f43cd84efbfd7dd7d0cdbfc0d18c87a6a"
+            ],
+            "markers": "'linux' in sys_platform",
+            "version": "==1.6.0"
+        },
+        "ewmh": {
+            "hashes": [
+                "sha256:c56b093f7d575181e979bb3a7d15c34065755f811c351ff0a31fede12b09343d"
+            ],
+            "markers": "sys_platform == 'linux'",
+            "version": "==0.1.6"
+        },
         "flatbuffers": {
             "hashes": [
                 "sha256:0ae7d69c5b82bf41962ca5fde9cc43033bc9501311d975fd5a25e8a7d29c1245",
@@ -87,11 +101,11 @@
         },
         "freenlpc": {
             "hashes": [
-                "sha256:240a093a5329cbc3a6dbf0b022fc497a688d83af5522ffa0ed0bbb8065abcb07",
-                "sha256:c6f13f6dc0b0a364b003dcc419bf3b4e93d5a2e0a21587cecabaa870c926a5f8"
+                "sha256:96da51bd28aa256b40b076a789dbc1d04dc85c0526c6ed2d710c8fe91ca2a327",
+                "sha256:a058ca445e0c7638aa2f45c2681b48d2d071448990ab6774443cff92f648a31a"
             ],
             "index": "pypi",
-            "version": "==0.1.7"
+            "version": "==0.1.9"
         },
         "gast": {
             "hashes": [
@@ -485,6 +499,15 @@
             ],
             "version": "==1.0.9"
         },
+        "pynput": {
+            "hashes": [
+                "sha256:19861b2a0c430d646489852f89500e0c9332e295f2c020e7c2775e7046aa2e2f",
+                "sha256:264429fbe676e98e9050ad26a7017453bdd08768adb25cafb918347cf9f1eb4a",
+                "sha256:3a5726546da54116b687785d38b1db56997ce1d28e53e8d22fc656d8b92e533c"
+            ],
+            "markers": "sys_platform == 'linux'",
+            "version": "==1.7.6"
+        },
         "pyowm": {
             "hashes": [
                 "sha256:1a4dbca50c5856044de635df3c4f70c334bbba130ce8fb43eaf2892b1a4d7010",
@@ -548,6 +571,13 @@
             "index": "pypi",
             "version": "==3.0.16120"
         },
+        "python-xlib": {
+            "hashes": [
+                "sha256:1ec6ce0de73d9e6592ead666779a5732b384e5b8fb1f1886bd0a81cafa477759",
+                "sha256:74d83a081f532bc07f6d7afcd6416ec38403d68f68b9b9dc9e1f28fbf2d799e9"
+            ],
+            "version": "==0.31"
+        },
         "python3-xlib": {
             "hashes": [
                 "sha256:dc4245f3ae4aa5949c1d112ee4723901ade37a96721ba9645f2bfa56e5b383f8"
@@ -560,6 +590,13 @@
                 "sha256:8533282cf70b31de8a0499e1cf420930b0013c787118872b2ec899382792e2e6"
             ],
             "version": "==1.0.4"
+        },
+        "pywinctl": {
+            "hashes": [
+                "sha256:881bed6d08fbcd50b80ec051da9a0be5cc6b08253185b91e0339056b803fe504"
+            ],
+            "index": "pypi",
+            "version": "==0.0.38"
         },
         "regex": {
             "hashes": [
@@ -912,6 +949,14 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==1.14.1"
+        },
+        "xlib": {
+            "hashes": [
+                "sha256:60b7cd5d90f5d5922d9ce27b61589c07d970796558d417461db7b66e366bc401",
+                "sha256:8eee67dad83ef4b82bbbfa85d51eeb20c79d12b119fe25aa1d27bd602ff82212"
+            ],
+            "markers": "sys_platform == 'linux'",
+            "version": "==0.21"
         },
         "xneuralintents": {
             "hashes": [

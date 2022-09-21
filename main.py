@@ -21,7 +21,8 @@ import pafy, vlc, urllib, re, requests
 from time import sleep
 import pickle
 import json
-
+import pywinctl
+from modules.skynixwm import SkynixWm
 
 load_dotenv(".env")
 
@@ -31,7 +32,8 @@ class SkyNix:
         self.name = "SKYNIX"
         
         self.config = json.load(open(f"/home/{os.getlogin()}/skynix/config.json"))
-        
+        self.skynix_window = pywinctl.getActiveWindow()
+        self.wm = SkynixWm()
         nlpcloud_tokens = self.config["nlpcloud_tokens"]
         self.core_functions = FreeNlpc(nlpcloud_tokens)
         
@@ -44,18 +46,19 @@ class SkyNix:
         
         self.tasks = {"chat": self.chat,
                       "get_weather": self.get_weather,
-                      "run_app": self.run_app,
+                      "run_app": self.app_control,
                       "chat": self.chat,
                       "tutor": self.tutor,
                       "code": self.code,
                       "music": self.music,
                       "linux_command": self.linux_command}
         
-        self.tasks_cls = GenericAssistant(f'/home/{os.getlogin()}/skynix/tasks_classifier/tasks_intents.json', model_name="skynix_tasks_cls", intent_methods=self.tasks)
-        self.tasks_cls.load_model(f"/home/{os.getlogin()}/skynix/tasks_classifier/skynix_tasks_cls")
+        self.tasks_cls = GenericAssistant(f'/home/{os.getlogin()}/skynix/intents_classifiers/main_tasks/intents.json', model_name="skynix_tasks_cls", intent_methods=self.tasks)
+        self.tasks_cls.load_model(f"/home/{os.getlogin()}/skynix/intents_classifiers/main_tasks/skynix_tasks_cls")
+        self.app_control_cls = GenericAssistant(f"/home/{os.getlogin()}/skynix/intents_classifiers/app_control/intents.json", model_name="skynix_app_control")
+        self.app_control_cls.load_model(f"/home/{os.getlogin()}/skynix/intents_classifiers/app_control/skynix_app_control")
         
         self._get_sxhkd_binds()
-        
         self._load_conversation(f"/home/{os.getlogin()}/.local/share/skynix/conversation.pkl")
         self._init_vlc()
         
@@ -114,16 +117,23 @@ class SkyNix:
             if str(temp) in response:
                 return self._clean_text(response)
     
-    def run_app(self, text: str):
+    def app_control(self, text: str):
         app_name = self.gptj.generate(prompts.get_app.replace("<command>", text), length=20, stop_sequences=["\n","###"])
         app_name = self._clean_text(app_name)
-        for i in self.keybinds:
-            if app_name in i["app"]:
-                pyautogui.hotkey(*i["keys"])
-                return f"running {app_name}"
+        task = self.app_control_cls.request(text)
+        if task == "open":
+            return self._open_app(app_name)
+        elif task == "close":
+            return self._close_app(app_name)
+        elif task == "show":
+            return self._show_app(app_name)
+        elif task == "hide":
+            return self._hide_app(app_name)
+        elif task == "focus":
+            return self._focus_app(app_name)
         else:
-            return f"could not find {app_name}"
-    
+            return self._self_correct(text)
+                
     def music(self, text: str):
         action = self.core_functions.classification(text, ["play", "pause", "stop"])['scored_labels'][0]['label']
         if action == "play":
@@ -155,6 +165,20 @@ class SkyNix:
         command = self._clean_code(command)
         syntax = Syntax(command, "Bash", theme="one-dark")
         return syntax
+    
+    def terminal_autopilot(self, text: str):
+        print("[bold red]WARNING: Experimental feature. Use at your own risk.")
+        command = self.codegen.generate(prompts.linux_task.replace("<task>", text), temperature=0.5, length=20, stop_sequences=["###", "QUESTION:","LINUX COMMAND:", "ANSWER:", "CONVERSATION:", 'A:', "TASK:"])
+        command = self._clean_code(command)
+        pyperclip.copy(command)
+        self.terminal.show()
+        self.terminal.activate()
+        pyautogui.hotkey("ctrl", "shift", "v")
+        sleep(1.5)
+        pyautogui.press("enter")
+        sleep(2)
+        self.skynix_window.activate()
+        return "running command"
     
 
     ##################-UTILS-##################
@@ -252,6 +276,7 @@ class SkyNix:
                 code = code[1:]
             elif code[-1].isspace():
                 code = code[:-1]
+        code = code.splitlines()[0]
         return code
     
     def _get_yt_url(self, query: str):
@@ -299,18 +324,54 @@ class SkyNix:
             self.user_name = input("please enter your name: ").capitalize()
             os.system("clear")
             self._hello()
+    
+    def _open_app(self, app_name):
+        if not self.wm.open(app_name):
+            return f"running {app_name}"
+        else:
+            return "I'm sorry, I couldn't find that app"
+    def _close_app(self, app_name):
+        if not self.wm.close(app_name):
+            return f"closed {app_name}"
+        else:
+            return "I'm sorry, I couldn't find that app"
+    def _show_app(self, app_name):
+        if not self.wm.show(app_name):
+            return f"showing {app_name}"
+        else:
+            return "I'm sorry, I couldn't find that app"
+    def _hide_app(self, app_name):
+        if not self.wm.hide(app_name):
+            return f"hiding {app_name}"
+        else:
+            return "I'm sorry, I couldn't find that app"
+    def _focus_app(self, app_name):
+        if not self.wm.focus(app_name):
+            return f"focused {app_name}"
+        else:
+            return "I'm sorry, I couldn't find that app"
+    
+    def _launch_alacritty_terminal(self):
+        self._open_app("alacritty")
+        sleep(2)
+        window_title = pywinctl.getAllAppsWindowsTitles()["alacritty"][0]
+        self.terminal = pywinctl.getWindowsWithTitle(window_title)[0]
+        self.terminal.hide()
 
      
 if __name__ == "__main__":
     skynix = SkyNix()
-    try:
-        while True:
-            text = Prompt.ask("[red]>>> ")
-            response = skynix._inference(text)
-            if type(response) == str:
-                print(f"[blue]{response}")
-            else:
-                print(response)
-    except KeyboardInterrupt:
-        print("[red]Exiting SkyNix...")
-        exit()
+    #try:
+    #    while True:
+    #        text = Prompt.ask("[red]>>> ")
+    #        response = skynix._inference(text)
+    #        if type(response) == str:
+    #            print(f"[blue]{response}")
+    #        else:
+    #            print(response)
+    #except KeyboardInterrupt:
+    #    print("[red]Exiting SkyNix...")
+    #    exit()
+    while True:
+        text = input(">>> ")
+        print(skynix.app_control(text))

@@ -20,6 +20,7 @@ python-dotenv = "*"
 pyowm = "*"
 youtube-dl = "*"
 pafy = {git = "https://github.com/Cupcakus/pafy.git"}
+pywinctl = "*"
 
 [dev-packages]
 nuitka = "*"

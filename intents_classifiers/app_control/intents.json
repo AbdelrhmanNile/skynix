@@ -1,0 +1,27 @@
+{"intents": [
+  {"tag": "open",
+    "patterns": ["open app", "start app", "launch app"],
+    "responses": ["open"],
+    "context_set": ""
+  },
+  {"tag": "close",
+    "patterns": ["close app", "stop app", "quit app"],
+    "responses": ["close"],
+    "context_set": ""
+  },
+  {"tag": "show",
+    "patterns": ["show app", "display app", "show me app"],
+    "responses": ["show"],
+    "context_set": ""
+  },
+  {"tag": "hide",
+    "patterns": ["hide app", "dismiss app", "hide app"],
+    "responses": ["hide"],
+    "context_set": ""
+  },
+  {"tag": "focus",
+    "patterns": ["focus app", "activate app", "take me to app"],
+    "responses": ["focus"],
+    "context_set": ""
+  }
+]}
