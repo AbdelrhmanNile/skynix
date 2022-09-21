@@ -361,17 +361,14 @@ class SkyNix:
      
 if __name__ == "__main__":
     skynix = SkyNix()
-    #try:
-    #    while True:
-    #        text = Prompt.ask("[red]>>> ")
-    #        response = skynix._inference(text)
-    #        if type(response) == str:
-    #            print(f"[blue]{response}")
-    #        else:
-    #            print(response)
-    #except KeyboardInterrupt:
-    #    print("[red]Exiting SkyNix...")
-    #    exit()
-    while True:
-        text = input(">>> ")
-        print(skynix.app_control(text))
+    try:
+        while True:
+            text = Prompt.ask("[red]>>> ")
+            response = skynix._inference(text)
+            if type(response) == str:
+                print(f"[blue]{response}")
+            else:
+                print(response)
+    except KeyboardInterrupt:
+        print("[red]Exiting SkyNix...")
+        exit()
