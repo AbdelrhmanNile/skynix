@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "7319513df4ae185bc8433e62c60c50a7d328ea6923b8b4858bb2bd85f98665a2"
+            "sha256": "d8ec17822c6b6daf463f9311de8f42c9b5e7ca3855eb3c6c655fe1fa142cd9e6"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -101,11 +101,11 @@
         },
         "freenlpc": {
             "hashes": [
-                "sha256:2f10b459e440bc0224cfc7fd61ec05518b62b9d5b9196235882b859f6a287f04",
-                "sha256:eef47925ea01f3da443f2a3b9f9be71468e68158a4460ce50c29905a3b10104a"
+                "sha256:46d9dd189c36b44b1370670eeae8efb8320264e73024602b6399fb4648ccbf2e",
+                "sha256:62bea089433f6d4d86c19c5d4eb5d2f42abbbe0c303f361c2da212018ce26e16"
             ],
             "index": "pypi",
-            "version": "==0.2.0"
+            "version": "==0.2.1"
         },
         "gast": {
             "hashes": [
