@@ -78,7 +78,7 @@ class SkyNix:
     ##################-SKILLS-##################
     def chat(self, text: str):
         convo_block = self._get_memories_of(self.conversation[-1], count=20)
-        response = self.gptj.generate(prompts.chat.replace("<block>", convo_block).replace("USER", self.user_name), repetition_penalty=1.05,length=100, stop_sequences=["USER:","SKYNIX:"])
+        response = self.gptj.generate(prompts.chat.replace("<block>", convo_block).replace("USER", self.user_name), repetition_penalty=1.05,length=100, stop_sequences=[f"{self.user_name}","SKYNIX:"])
         return self._clean_text(response)
     
     def tutor(self, text: str):
@@ -89,7 +89,7 @@ class SkyNix:
         followup_question = self.gptj.generate(prompts.followup_question.replace("<block>", convo_block).replace("<topic>", topic), length=20, temperature=0.5)
         followup_question = self._clean_text(followup_question)
         answer = self._answer_question(wiki_content, followup_question)
-        response = self.gptj.generate(prompts.tutor.replace("<block>", convo_block).replace("<hint>", answer).replace("USER", self.user_name), length=100, temperature=0.5, stop_sequences=["USER:","SKYNIX:", "HINT:"])
+        response = self.gptj.generate(prompts.tutor.replace("<block>", convo_block).replace("<hint>", answer).replace("USER", self.user_name), length=100, temperature=0.5, stop_sequences=[f"{self.user_name}","SKYNIX:", "HINT:"])
         return response.strip()
         
     def code(self, text: str):
@@ -321,7 +321,7 @@ class SkyNix:
             self.conversation = []
             print("[green]Welcome to SkyNix!")
             print("[yellow]I am SkyNix, your Linux assistant.")
-            self.user_name = input("please enter your name: ").capitalize()
+            self.user_name = input("please enter your name: ").upper()
             os.system("clear")
             self._hello()
     
