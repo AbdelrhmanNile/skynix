@@ -256,11 +256,11 @@ class SkyNix:
             return [i['message'] for i in ordered]
     
     def _clean_text(self, text: str):
-        try:
-            clean_text = text.strip().splitlines()[0]
-        except:
-            clean_text = text.strip()
-        return clean_text
+        #try:
+        #    clean_text = text.strip().splitlines()[0]
+        #except:
+        #    clean_text = text.strip()
+        return text
     
     def _get_sxhkd_binds(self):
         self.keybinds = []
