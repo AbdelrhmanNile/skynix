@@ -96,5 +96,5 @@ class SkynixWm:
 if __name__ == "__main__":
     wm = SkynixWm()
     wm.open("alacritty")
-    sleep(2)
-    wm.hide("alacritty")
+    #sleep(2)
+    wm.close("alacritty")

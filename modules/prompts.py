@@ -200,6 +200,8 @@ SENTENCE:
 
 CATEGORIES:
 <categories>
+
+CATEGORY:
 """
 
 task_response = """you have been assigned the following TASK, give a correct ANSWER to the TASK based on HINT.

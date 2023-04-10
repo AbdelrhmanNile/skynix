@@ -35,13 +35,18 @@ the chat histroy will be saved in conversation.pkl ```~/.local/share/skynix```
 - in order to make it run apps you need to have your keybinds in a ```sxhkdrc``` file in ```~/.config/sxhkd```
     sxhkdrc example: [here](https://gitlab.com/dwt1/dotfiles/blob/master/.config/sxhkd/sxhkdrc)
 
-- when configuring skynix, provide more than one nlpcloud api tokens.
-    create multiple accounts on [nlpcloud](https://nlpcloud.com/) and get the api tokens.
-        after creating an account play with it a bit in the playground to not get banned.
-            after a while of using these tokens, nlpcloud will rate-limit them with 1 request per hour, when it happens, create another account and get another token.
+- to make it work, sign up for [poe.com][poe] to access the chatbots
+    follow [skynix](https://poe.com/SkyNix) chatbot
+    follow [InstructClaude](https://poe.com/InstructClaude) chatbot
 
-- DO NOT use a vanilla gpt-j model from [forefront](https://www.forefront.ai/), fine-tune one using the dataset provided in the repo.
-    they give you a free 10$ credit every month.
+    get your token by:
+    - going to [poe.com][poe]
+    - open your browser's developer tools (also known as "inspect") and look for the value of the `p-b` cookie in the follwoing minues
+        - Chromium: Devtools > Application > Cookies > poe.com
+        - Firefox: Devtools > Storage > Cookies
+        - Safari: Devtools > Storage > Cookies
+    - copy the value of the `p-b` cookie and paste it in the config file in the `poe_token` field
+
 
 - you can bind ```skynix-cli run``` to a function key and it will work like a toggle.
 

@@ -5,6 +5,8 @@ SENTENCE:
 
 CATEGORIES:
 <categories>
+
+CATEGORY:
 """
 class NLPTasks:
     def __init__(self):

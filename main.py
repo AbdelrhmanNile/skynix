@@ -141,11 +141,12 @@ class SkyNix:
             response = self.llms.instruct_claude(prompts.question_answering_hint.replace("<question>", text).replace("<hint>", info))
             if str(temp) in response:
                 return self._clean_text(response)
-    @_channel_through_skynix
+    #@_channel_through_skynix
     def app_control(self, text: str):
         app_name = self.llms.instruct_claude(prompts.get_app.replace("<command>", text))
         app_name = self._clean_text(app_name)
         task = self.app_control_cls.request(text)
+        print(task)
         if task == "open":
             return self._open_app(app_name)
         elif task == "close":
@@ -161,7 +162,7 @@ class SkyNix:
     @_channel_through_skynix            
     def music(self, text: str):
         action = self.core_functions.classification(self.llms.instruct_claude, text, ["play", "pause", "stop"])
-        action = action.strip()
+        action = action.strip().lower()
         if action == "play":
             #convo_block = self._get_memories_of(self.conversation[-1], count=3)
             song = self.llms.instruct_claude(prompts.song_name.replace("<text>", text))
