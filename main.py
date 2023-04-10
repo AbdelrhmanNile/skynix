@@ -54,7 +54,7 @@ class SkyNix:
         #codegen_url = self.config["forefront_codegen_url"]
         #self.gptj = ForeFrontApi(forefront_token, gptj_url)
         #self.codegen = ForeFrontApi(forefront_token, codegen_url)
-        self.llms = LLMS("NpJZhOR1JpBnKVGZ6sVxhQ%3D%3D")
+        self.llms = LLMS(self.config["poe_token"])
         
         
         self.tasks = DictHist({"chat": self.chat,
