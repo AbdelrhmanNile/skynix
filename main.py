@@ -146,7 +146,6 @@ class SkyNix:
         app_name = self.llms.instruct_claude(prompts.get_app.replace("<command>", text))
         app_name = self._clean_text(app_name)
         task = self.app_control_cls.request(text)
-        print(task)
         if task == "open":
             return self._open_app(app_name)
         elif task == "close":
