@@ -1,4 +1,6 @@
 import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 #from freenlpc import FreeNlpc
 from modules.nlp_tasks import NLPTasks
 from modules.ForeFront import ForeFrontApi
@@ -33,7 +35,6 @@ load_dotenv(".env")
 def _channel_through_skynix(func):
         def wrapper(self, text: str):
             output = func(self, text)
-            print(self.tasks.last_key())
             return self.llms.skynix(prompts.task_response.replace("<task>", self.tasks.last_key()).replace("<hint>", output))
         return wrapper
 
