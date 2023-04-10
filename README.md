@@ -36,8 +36,8 @@ the chat histroy will be saved in conversation.pkl ```~/.local/share/skynix```
     sxhkdrc example: [here](https://gitlab.com/dwt1/dotfiles/blob/master/.config/sxhkd/sxhkdrc)
 
 - to make it work, sign up for [poe](https://poe.com) to access the chatbots
-    follow [skynix](https://poe.com/SkyNix) chatbot
-    follow [InstructClaude](https://poe.com/InstructClaude) chatbot
+    - follow [skynix](https://poe.com/SkyNix) chatbot
+    - follow [InstructClaude](https://poe.com/InstructClaude) chatbot
 
     get your token by:
     - going to [poe](https://poe.com)
