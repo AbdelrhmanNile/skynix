@@ -35,12 +35,12 @@ the chat histroy will be saved in conversation.pkl ```~/.local/share/skynix```
 - in order to make it run apps you need to have your keybinds in a ```sxhkdrc``` file in ```~/.config/sxhkd```
     sxhkdrc example: [here](https://gitlab.com/dwt1/dotfiles/blob/master/.config/sxhkd/sxhkdrc)
 
-- to make it work, sign up for [poe.com][poe] to access the chatbots
+- to make it work, sign up for [poe](https://poe.com) to access the chatbots
     follow [skynix](https://poe.com/SkyNix) chatbot
     follow [InstructClaude](https://poe.com/InstructClaude) chatbot
 
     get your token by:
-    - going to [poe.com][poe]
+    - going to [poe](https://poe.com)
     - open your browser's developer tools (also known as "inspect") and look for the value of the `p-b` cookie in the follwoing minues
         - Chromium: Devtools > Application > Cookies > poe.com
         - Firefox: Devtools > Storage > Cookies
