@@ -7,7 +7,6 @@ name = "pypi"
 requests = "*"
 tensorflow = "*"
 numpy = "*"
-freenlpc = ">=0.2.3"
 pyautogui = "*"
 wikipedia = "*"
 rich = "*"
@@ -18,9 +17,12 @@ xneuralintents = "*"
 beautifulsoup4 = "*"
 python-dotenv = "*"
 pyowm = "*"
-youtube-dl = "*"
-pafy = {git = "https://github.com/Cupcakus/pafy.git"}
 pywinctl = "*"
+sentence-transformers = "*"
+spacy = "*"
+poe-api = "*"
+yt-dlp = "*"
+pafy = {git = "https://github.com/AbdelrhmanNile/pafy.git"}
 
 [dev-packages]
 nuitka = "*"

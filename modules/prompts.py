@@ -2,13 +2,7 @@ get_app = """Extract Application name from the following sentences.
 
 sentence: run brave
 application name: brave
-###
-sentence: run vlc
-application name: vlc
-###
-sentence: run firefox
-application name: firefox
-###
+
 sentence: <command>
 application name:"""
 
@@ -47,10 +41,7 @@ CONVERSATION:
 USER: that is interesting.
 SKYNIX: yes it really is.
 USER: i want to learn more about Linux, can you teach me?
-
-
 Single most relevant Wikipedia article title: Linux
-###
 
 CONVERSATION:
 <block>
@@ -99,7 +90,7 @@ code = """
 given the follwoing PROMPT generate CODE.
 
 PROMPT:
-a python3 funcrion named wow to print "hello world"
+a python3 function named wow to print "hello world"
 
 CODE:
 def wow():
@@ -194,13 +185,30 @@ LINUX COMMAND:
 song_name = """extract the SONG NAME from the following SENTENCE.
 
 TEXT:
-you know what, i am feeling sad, i want to listen to stairway to heaven.
-
+i want to listen to stairway to heaven.
 SONG NAME:
 stairway to heaven
-###
+
 TEXT:
 <text>
-
 SONG NAME:
+"""
+
+pclassification = """classify the following SENTENCE into one of the following CATEGORIES.
+SENTENCE:
+<sentence>
+
+CATEGORIES:
+<categories>
+"""
+
+task_response = """you have been assigned the following TASK, give a correct ANSWER to the TASK based on HINT.
+
+TASK:
+<task>
+
+ANSWER HINT:
+<hint>
+
+ANSWER:
 """
